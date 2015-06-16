@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>已选课程</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <div class="container" id="ggxx">
+    <div class="header">
+      <div class="hd_right">公共选修</div>
+      <div class="hd_left font-title">已选课程</div>
+    </div>
+    <!--头文件结束-->
+    <ul>
+    <volist name='yxkc' id='vo'>
+      <li>
+        <div class="left-li">
+            <p class="font18">{$vo.c_name}</p>
+            <p class="icon1">教师：{$vo.usr_name}</p>
+            <p class="icon2">教室：{$vo.cr_name}</p>
+            <p class="icon3">时间：周{$vo.cs_weekday} 第{$vo.cs_section}--{$vo[cs_section]+$vo[cs_sectioncount]-1}节</p>
+        </div> 
+        <div class="right-li">
+            <p class="xf">学分</p>
+            <p><span class="font34">{$vo.c_credit}</span>&nbsp;</p>
+        </div>       
+      </li>
+      </volist>
+    </ul>
+    <a href="__CONTROLLER__/kxkc/wxno/{$wxno}"><div class="button" id="button">可选课程</div></a>
+  </div>
+</body>
+</html>

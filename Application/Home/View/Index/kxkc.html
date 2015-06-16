@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>可选课程</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <div class="container" id="ggxx">
+   	<div class="header">
+    <div class="hd_left font-title">可选课程</div>
+        <div class="hd_right">公共选修</div>
+    </div>
+    <!--头文件结束-->
+    <ul>
+         <volist name='show_kxkc' id='kxkc'>
+      <li>
+        <div class="left-li">
+            <p class="font18"><strong>{$kxkc.c_name}</strong></p>
+            <p class="icon1">教师：{$kxkc.usr_name}</p>
+            <p class="icon2">教室: {$kxkc.cr_name}</p>
+            <p class="icon3">时间：周{$kxkc.cs_weekday} 第{$kxkc.cs_section}--{$kxkc[cs_section]+$kxkc[cs_sectioncount]-1}节</p>
+        </div>        
+		<div class="right-li">
+            <p class="xf">学分：{$kxkc.c_credit}</p>
+            <p>剩余：<span class="font34">{$kxkc.cs_pleft}</span>&nbsp;</p>
+        </div>
+      </li>
+        </volist>
+    </ul>
+    <a href="__CONTROLLER__/yxkc/wxno/{$wxno}"><div class="button" id="button">已选课程</div></a>
+   
+  	</div>
+</body>
+</html>

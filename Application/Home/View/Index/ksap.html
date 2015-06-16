@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>考试安排</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css">
+</link>
+</head>
+
+<body>
+  	<div class="container" id="ksap">
+        <div class="header">
+        	<div class="hd_right">
+      		<span class="time">
+          <?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?>
+            </span>        	    
+    		</div>
+    		<div class="hd_left font-title">考试安排</div>
+        </div>
+    <!--头文件结束-->
+    <ul>
+      <volist name='show_ksap' id='ksap' >
+      <li>
+        <div class="left-li">
+            <p class="font18">{$ksap.c_name}</p>
+            <p class="icon1">时间：{$ksap.e_begin}-{$ksap.e_end}</p>
+            <p class="icon2">教室：{$ksap.cr_name}</p>
+            </div>     
+        <div class="right-li">           
+			<p class="hs">还剩</p>
+			<p><span class="font34" id="timer">{$ksap.s_date}</span>天&nbsp;</p>
+		</div>
+      </li>
+    </volist>
+    </ul>
+  </div>
+</body>
+</html>

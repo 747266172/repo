@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>自习教室</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OzPKm4Ilw6ApzdGFPwxp7sCu"></script> 
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script> 
+<script>
+  $(function(){
+      $("#allmap").css("display","none");
+      //watchCurrentPosition	
+      navigator.geolocation.getCurrentPosition(translatePoint); //定位 
+	}); 
+	function translatePoint(position){
+		var currentLat = position.coords.latitude; 
+		var currentLon = position.coords.longitude; 
+		var gpsPoint = new BMap.Point(currentLon, currentLat); 
+		BMap.Convertor.translate(gpsPoint, 0, initMap); //转换坐标 
+	} 
+	function initMap(point){ 
+	  var map = new BMap.Map("allmap");
+	  map.centerAndZoom(point,18);  //初始化地图,设置城市和地图级别。
+	  var pointA = point;  
+	  var juliArr=$(".font20");
+	  <php>
+	  for($i=0; $i<count($zxk); $i++){
+		echo "var pointB = new BMap.Point(".$zxk[$i]['b_longitude'].",".$zxk[$i]['b_latitude'].");";  
+		echo "var juli = parseInt(map.getDistance(pointA,pointB));";
+		echo "juliArr[".$i."].innerHTML=juli;";
+	  }
+	  </php>  
+	}
+
+</script> 
+</head>
+
+<body>
+<div id="allmap"></div>
+  	<div class="container" id="zxjs">
+   	   	<div class="header">
+        <div class="hd_right">
+        	<div class="day">周{$week}</div>
+        	<div class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?></div>       
+        </div>
+    	<div class="hd_left font-title">自习教室</div>
+    </div>
+
+    <ul>
+      <volist name= 'zxk' id='vo'>
+     <a href="__CONTROLLER__/map"> 
+      <li>
+        <div class="left-li">
+            <p class="font18"><strong>{$vo.cr_name}</strong></p>
+            <p class="icon1">时间：{$jie}</p>
+            <p class="icon2">容量：{$vo.cr_count}人</p>
+        </div>        
+        <div class="right-li">
+        	<span class="font20"></span> m
+        </div>
+      </li>
+     </a>
+    </volist>
+    </ul>   
+  </div><!--div zxjs-->
+
+</body>
+</html>

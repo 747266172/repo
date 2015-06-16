@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>教务通知</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<php>
+function substr_cut($str_cut,$length)
+{
+    if (strlen($str_cut) > $length)
+    {
+        for($i=0; $i < $length; $i++)
+        if (ord($str_cut[$i]) > 128)    $i+=2;
+        $str_cut = substr($str_cut,0,$i)."...";
+    }
+    return $str_cut;
+}
+</php>
+<div class="container" id="jw">
+  <div class="header">
+    <div class="hd_right">
+      <span class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?></span>        	    
+    </div>
+    <div class="hd_left font-title">教务通知</div>
+  </div>
+    <!--头文件结束-->
+    <div id="tzul">
+  <ul>
+  <volist name="tz" id="vo">
+   <a href="__CONTROLLER__/tznr/jid/{$vo.j_id}"><li>
+   <div class="leftli"><span class="bt">{$vo.j_title|substr_cut=72}</span><span class="sj">{$vo.j_time|substr=0,10}</span></div>
+   <div class="right-li"><img src="{$Think.const.IMG_URL}{$vo.j_photo}"/></div>
+   </li></a>
+   </volist>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze UI Admin user Examples</title>
+  <meta name="description" content="这是一个 user 页面">
+  <meta name="keywords" content="user">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="{$Think.const.ADMIN_IMG_URL}favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="{$Think.const.ADMIN_IMG_URL}app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="{$Think.const.ADMIN_CSS_URL}amazeui.min.css"/>
+  <link rel="stylesheet" href="{$Think.const.ADMIN_CSS_URL}admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+   <small>后台管理</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+ <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="adminindex.html"><span class="am-icon-home"></span> 首页</a></li>
+        <li class="admin-parent">
+         <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 信息查询 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+            <li><a href="adminuser.html" class="am-cf"><span class="am-icon-check"></span> 学生信息<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a href="adminls.html"><span class="am-icon-puzzle-piece"></span> 老师信息</a></li>
+            <li><a href="admincj.html"><span class="am-icon-th"></span> 成绩信息</a></li>
+            <li><a href="adminbj.html"><span class="am-icon-th"></span> 班级信息</a></li>
+            <li><a href="adminkc.html"><span class="am-icon-th"></span> 课程信息</a></li>
+            <li><a href="adminjs.html"><span class="am-icon-calendar"></span> 教室信息</a></li>
+            <li><a href="adminzy.html"><span class="am-icon-bug"></span> 专业信息</a></li>
+          </ul>
+        </li>
+        <li><a href="admintz.html"><span class="am-icon-table"></span>教务通知</a></li>
+        <li><a href="adminkcb.html"><span class="am-icon-pencil-square-o"></span> 课程表</a></li>
+        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul>
+
+ <div class="am-panel am-panel-default admin-sidebar-panel">
+        
+      </div>
+     
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">老师信息添加</strong> / <small>Teacher information add</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+     
+
+
+        <form class="am-form am-form-horizontal">
+        <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">工号 /Id</label>
+            <div class="am-u-sm-9">
+              <input type="text" name="usr_no" id="usr_no" placeholder="工号 /Id">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
+            <div class="am-u-sm-9">
+              <input type="text" name="usr_name" id="usr_name" placeholder="姓名 / Name">
+            </div>
+          </div>
+
+             <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">微信号 / Wechat</label>
+            <div class="am-u-sm-9">
+              <input type="text" name="wxno" id="wxno" placeholder="微信号 / Wechat">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button type="button" class="am-btn am-btn-primary">保存添加</button>
+            </div>
+          </div>
+        </form>
+
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{$Think.const.ADMIN_JS_URL}jquery.min.js"></script>
+<script src="{$Think.const.ADMIN_JS_URL}amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="{$Think.const.ADMIN_JS_URL}app.js"></script>
+</body>
+</html>

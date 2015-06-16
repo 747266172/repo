@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<title>请假条</title>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+<link href="{$Think.const.CSS_URL}date.css" rel="stylesheet" type="text/css"></link>
+<script type="text/javascript" src="{$Think.const.JS_URL}jquery-1.11.3.min.js" ></script>
+<script type="text/javascript" src="{$Think.const.JS_URL}date.js" ></script>
+<script type="text/javascript" src="{$Think.const.JS_URL}iscroll.js" ></script>
+<script type="text/javascript">
+$(function(){
+	$('#beginTime').date();
+	$('#endTime').date();
+	var bt = $('#beginTime').get(0);
+	var et = $('#endTime').get(0);
+	var defaultDate = new Date(new Date().getTime()+24*60*60*1000);
+	bt.value = defaultDate.getFullYear()+"-"+(defaultDate.getMonth()+1)+"-"+defaultDate.getDate();
+	et.value = bt.value;
+	jssh();
+	$(document).bind('click',jssh);	
+	function jssh(){		
+		var time = $('#time').get(0);
+		if(bt.value && et.value){			
+			t = dateDiff(bt.value,et.value);
+			if(t>0){
+				time.value=t;
+				$('#date').css('display','inline');
+			}else{
+				time.value="结束时间必须大于开始时间";
+				$('#date').css('display','none');
+			}			
+		}
+	}
+	   //计算天数差的函数，通用 
+   	function  dateDiff(sDate1,  sDate2){    //sDate1和sDate2是2006-12-18格式 
+       var  aDate,  oDate1,  oDate2,  iDays ;
+       aDate  =  sDate1.split("-") ;
+       oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]); //转换为12-18-2006格式 
+       aDate  =  sDate2.split("-") ;
+       oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]) ;
+       iDays  = parseInt((oDate2  -  oDate1)  /  1000  /  60  /  60  /24) + 1;//把相差的毫秒数转换为天数
+       return  iDays ;
+   }
+ 	
+	
+   	
+});
+
+	function validate_isNum(field,txt){
+		if(isNaN(field.value)){
+			field.value=txt;
+			return false;
+		}
+	}
+	function validate_form(thisform){		
+		if(validate_isNum($("#time").get(0),"结束时间必须大于开始时间")==false){
+			return false;	
+		}
+	}
+</script>
+</head>
+
+<body>
+  <div id="qjt">
+    <form action="__SELF__" method="post" onsubmit="return validate_form(this);" >
+    <fieldset>
+    <legend class="font-title">请假条</legend>
+	<input type="hidden" name="usr_id" value="{$usr_id}">
+    <table width="100%" cellpadding="3" cellspacing="3">
+        <tr>
+        <td width="80px">请假类别:</td>
+         <td><input type="radio" name="type" value="病假" >病假&nbsp;&nbsp;
+         <input type="radio" name="type" value="事假" checked >事假</td> 
+    </tr>
+    <tr>
+    <td>开始时间：</td>
+        <td class="lie"><input name="begintime" type="text" class="kbtn" id="beginTime" /></td>
+    </tr>
+    <tr>
+        <td>结束时间：</td>
+        <td class="lie"><input name="endtime" type="text" class="kbtn" id="endTime"  /></td>
+    </tr>
+    <tr>
+        <td>请假时间：</td>
+        <td><input name="time" id="time" type="text"/><span id="date">天</span></td>
+    </tr>
+    <tr>
+        <td valign="top" >事由：</td>
+      <td><textarea name="account" id="account" required="required" ></textarea></td></tr>
+    
+    </table>
+    </fieldset>
+   <input type="submit" class="button" value="申请请假" id="submit"/>
+    </form> 
+  	
+	<div id="datePlugin"></div>
+  </div>
+</body>
+</html>

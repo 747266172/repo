@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>教学日志</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+  function hide(){
+	 var bkddArr = document.getElementsByName("bkdd");
+	 for(var i=0;i<bkddArr.length;i++){
+		 bkddArr[i].style.display="none";
+	 }
+ }
+ function show(){
+	 var bkddArr = document.getElementsByName("bkdd");
+	 for(var i=0;i<bkddArr.length;i++){
+		 bkddArr[i].style.display="block";
+	 }
+ }
+ window.onload = hide;
+</script>
+</head>
+
+<body>
+<div class="container" id="jsrw">
+  <div class="header">
+    <div class="hd_right">
+      <span class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?></span>        	    
+    </div>
+    <div class="hd_left font-title">教学日志</div>
+  </div>
+    <!--头文件结束-->
+  <ul>
+  <volist name="course" id="vo">
+  <li>
+  <form action="__SELF__" method="post">
+  <input type="hidden" name="tea_id" value="{$vo.tea_id}" />  	
+   <p class="tou"><strong>班级名称：</strong>{$vo.sc_name}</p>   
+   <p class="tou"><strong>课程名称：</strong>{$vo.c_name}</p>
+   <p class="tou"><strong>教学时间：</strong>第{$vo["tea_weeks"]}周 星期{$vo.s_weekday} {$vo["s_section"]}至{$vo["s_section"]+$vo["s_sectioncount"]-1}节</p>
+   <p class="tou"><strong>教学地点：</strong>{$vo.cr_name}</p>
+   <p class="tou"><strong>教学类别：</strong>  
+	<input type="radio" name="tea_category" value="正常" class="radio" checked="checked" onClick="hide();"/>正常
+	<input type="radio" name="tea_category" value="补课" class="radio" onClick="show();"/>补课
+   </p>
+   <p class="tou"><strong>教学形式：</strong>
+	<input type="radio" name="tea_form" value="理论教学" class="radio" checked="checked" />理论教学
+	<input type="radio" name="tea_form" value="实验教学" class="radio"/>实验教学
+   </p>
+   <p class="tou" name="bkdd"><strong>补课地点：</strong>	
+     <select name="tea_bk_cr_id" id="select">
+     <volist name="classroom" id="vo">
+       <option value="{$vo.cr_id}">{$vo.cr_name}</option>
+     </volist>
+     </select>
+   </p>
+   <p class="tou"><strong>教学内容：</strong></p>
+   <textarea name="tea_content" ></textarea>
+   <input type="submit" class="button" value="提交" style="width:100%;"/>
+   </form>
+   </li>
+   </volist>
+  </ul>
+    
+</div>
+</body>
+</html>

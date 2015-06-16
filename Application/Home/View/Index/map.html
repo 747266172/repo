@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:100%;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OzPKm4Ilw6ApzdGFPwxp7sCu"></script>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<title>地图详情</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能	
+	//alert(zxk);
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(108.201151,22.836978), 17);
+	var data_info =[
+		<volist id="vo1" name="zxk">
+		[{$vo1[0].b_longitude},{$vo1[0].b_latitude},
+		"<php> 
+				for($i=0;$i<count($vo1);$i++){
+					echo $vo1[$i]['cr_name'].'&nbsp&nbsp';
+					if ($i%2==1){echo'<br/>';}
+				}
+		</php>" ],
+		</volist>
+	]
+	//var data_info = [[108.200181,22.837722,"技术楼"],
+	//				 [108.200882,22.83659,],
+	//				 [108.195752,22.835624,"四号楼"],
+    //                 [108.196238,22.836132,"四教阶梯三教室"],
+    //                 [108.192851,22.835132,"图书馆"]
+	//				];
+	var opts = {
+				width : 280,     // 信息窗口宽度
+				height: 150,     // 信息窗口高度
+				//title : data_info[i][4]+"可用教室" , // 信息窗口标题
+				enableMessage:false//设置允许信息窗发送短息
+			   };
+	for(var i=0;i<data_info.length;i++){
+		var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+		var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>可用教室</h4>" + 
+	"<p style='margin:0;color:blue;line-height:1.5;letter-spacing:1px;font-size:15px;'>"+data_info[i][2]+"</p>" + 
+	"</div>";
+		map.addOverlay(marker);               // 将标注添加到地图中
+		addClickHandler(content,marker);
+	}
+	function addClickHandler(content,marker){
+		marker.addEventListener("click",function(e){
+			openInfo(content,e)}
+		);
+	}
+	function openInfo(content,e){
+		var p = e.target;
+		var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+		var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+			map.openInfoWindow(infoWindow,point); //开启信息窗口
+	}
+</script>

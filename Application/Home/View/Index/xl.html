@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>校历</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container" id="xl">
+  <div class="header">
+    <div class="hd_right">
+      <span class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?></span>        	    
+    </div>
+    <div class="hd_left font-title">校历</div>
+  </div>
+    <!--头文件结束-->
+  <ul>
+   <volist name='xl' id='xl' >
+      <li>
+        <div class="left-li">
+            <p class="font18">{$xl.x_year}年{$xl.x_term}季学期</p>
+            <p><span class="zt">开学：</span>{$xl.x_start}<span class="fj">放假：</span>{$xl.x_end}</p>
+            </div>     
+      </li>
+    </volist>
+  </ul>
+</div>
+</body>
+</html>

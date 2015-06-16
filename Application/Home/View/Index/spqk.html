@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>审批情况</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <div class="container" id="spqk">
+   	<div class="header">
+    <div class="hd_left font-title">审批情况</div>
+        <a href="__CONTROLLER__/sp/wxno/{$wxno}"><div class="hd_right">未审批</div></a>
+    </div>
+    <!--头文件结束-->
+    <ul>
+    	<volist name="spqklist" id="vo">
+         <li>
+			<div class="left-li">
+            <p class="font18"><label>姓名：</label>{$vo.usr_name}</p>
+			  <p><label>请假类别：</label>{$vo.type}</p>
+				<p><label>开始时间：</label>{$vo.begintime}</p>
+				<p><label>结束时间：</label>{$vo.endtime}</p>
+				<p><label>请假时间：</label>{$vo.time}天</p>
+				<p><label>事由：</label>{$vo.account}</p>
+				<p><label>教师意见：</label>{$vo.suggestion}</p>             
+            </div>
+            <div class="right-li"><p>{$vo.agree}</p>
+            </div>  
+        </li>   
+        </volist>    
+    </ul>
+   	</div>
+</body>
+</html>

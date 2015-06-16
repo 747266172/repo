@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>考勤记录</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container" id="kqlb">
+  <div class="header">
+    <div class="hd_right">
+      <span class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?></span>        	    
+    </div>
+    <div class="hd_left font-title">考勤记录</div>
+  </div>
+    <!--头文件结束-->
+  <ul>
+  <volist name="attList" id="vo">
+   <a href="__CONTROLLER__/kqqk/teaid/{$vo.tea_id}/wxno/{$wxno}">     
+   <li>
+      <p class="font18">班级：{$vo.sc_name}</p>
+      <p>{$vo.c_name}&nbsp;&nbsp;第{$vo.tea_weeks}周&nbsp;星期{$vo.s_weekday}&nbsp;第{$vo.s_section}到{$vo.s_sectionend}节</p>
+    </li></a>    
+   </volist>
+  </ul>
+</div>
+</body>
+</html>

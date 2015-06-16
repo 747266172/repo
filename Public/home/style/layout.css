@@ -1,0 +1,217 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* ====================
+     公共样式
+==================== */
+*{margin:0; padding:0; list-style-type:none; -webkit-box-sizing:border-box; box-sizing:border-box;}
+input{border:0;}
+body{font-size:14px; color:#333; line-height:1.5;}
+a{ text-decoration:none; color:#333;}
+.container{width:92%; margin:0 auto;}
+.container .header{height:50px; margin-top:10px; border-bottom:5px solid #005b9a;}
+.container .hd_left{ width:55%; float:left;}
+.container .hd_right{float:right; margin-top:12px; padding:5px; font-weight:bold;}
+.container .day{padding:0 5px; color:#FFF; background:#bcccd4; float:right;font-size:14px; font-weight:bold; border-radius:3px;}
+.container .time{ clear:right; text-align:right; font-size:12px;}
+.container .bttb{
+	padding-top:20px;
+}
+.container ul{width:98%; margin:10px auto;}
+.container ul li{overFlow:auto; margin-top:10px; border-left:5px solid #abd78c; padding:10px; background:#f7f7f7;
+}
+.container .left-li{float:left; width:65%;}
+.container .right-li{float:right; text-align:center; font-weight: bold;}
+.button{ height:40px; background-color:#27a0f3; border-radius: 5px; padding:5px; text-align:center; font-size:20px; color:#FFF; cursor:pointer; font-weight:bold;}
+
+/* ====================
+     字体样式
+==================== */
+.font-weight{ font-weight:bold;}
+.font18{font-size:18px; font-weight:bold;}
+.font20{font-size:20px; color:#ffc801; font-weight:bold;}
+.font34{font-size:34px; color:#ffc801; font-weight:bold;}
+.font-title{ color:#27a0f3; font-size:25px; line-height:50px;  font-weight:bold;}
+
+/*================
+今日课程
+================*/
+#jrkc .hd_left{ background:url(../images/jrkb.jpg) 0 center no-repeat; padding-left:45px;}
+#jrkc ul li{ padding:0;}
+#jrkc .hd_right{margin-top:0; padding:3 5px;}
+#jrkc .left-li{ padding:10px 10px 0 10px;}
+#jrkc .right-li{ width:80px; padding:10px 12px; color:#FFF; background:#ffc801};
+#jrkc ul li p{ margin:3px 0;}
+#jrkc .icon1{ background:url(../images/ls.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#jrkc .icon2{ background:url(../images/dt.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#jrkc .icon3{ background:url(../images/sj.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#jrkc #right1{ margin:5px 0; font-size:15px;}
+#jrkc #right2{ margin:0; font-size:12px;}
+#jrkc #button{ margin:20px auto; width:98%;}
+
+/*================
+全周课表
+================*/
+#qzkb .hd_left{ background:url(../images/jrkb.jpg) 0 center no-repeat; padding-left:45px;}
+#qzkb table{ margin-top:10px;}
+#qzkb table tr{ text-align:center;}
+#qzkb th{ background:#E2F3FF; height:60px; font-size:12px;}
+#qzkb .left{ background:#E2F3FF; }
+#qzkb .tdbg{ background: #abd78c; border-radius:5px; padding:3px 3px 0 3px; font-size:13px; display:inline-block; width:100%; height:100%;}
+#qzkb .space{ height:12px; }
+#qzkb td{ padding-left:3px; width:12.5%; height:65px; word-break:break-all; text-align:center; vertical-align:middle;}
+
+/*通知内容*/
+#tznr #bt{font-size:24px; font-weight:bold; width:90%; margin:10px auto;}
+#tznr #sj{margin-bottom:10px; text-align:center; font-size:14px;}
+#tznr #tu{margin-bottom:5px; text-align:center;}
+#tznr #nr{margin-bottom:10px; text-align:left; font-size:12px; line-height:25px; color:#333;}
+#tznr #fh{margin-top:10px; text-align:right; font-size:12px; line-height:25px; color:#abd78c;}
+
+/*已选课程 可选课程*/
+#ggxx .hd_left{ background:url(../images/kxyx.jpg) 0 center no-repeat; padding-left:45px;}
+#ggxx #button{ margin:20px auto; width:98%;}
+#ggxx ul li p{ margin:3px 0;}
+#ggxx .icon1{ background:url(../images/teacher.gif) no-repeat 10px 0; padding-left:40px;line-height:20px;}
+#ggxx .xf{ margin-top:15px;}
+#ggxx .icon1{ background:url(../images/ls.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#ggxx .icon2{ background:url(../images/dt.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#ggxx .icon3{ background:url(../images/sj.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+
+/*考试安排*/
+#ksap .hd_left{ background:url(../images/ksap.jpg) 0 center no-repeat; padding-left:45px;}
+#ksap ul li p{ margin:3px 0;}
+#ksap .hs{font-size:14px;}
+#ksap .icon2{ background:url(../images/dt.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#ksap .icon1{ background:url(../images/sj.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+
+/*自习教室*/
+#zxjs .hd_left{ background:url(../images/zx.jpg) 0 center no-repeat; padding-left:45px;}
+#zxjs .icon2{ background:url(../images/rs.png) 0 center no-repeat; padding-left:25px;}
+#zxjs .icon1{ background:url(../images/sj.png) no-repeat 0px center; padding-left:25px;line-height:20px;}
+#zxjs .right-li{background:url(../images/dt.png) 0 center no-repeat; padding-left:10px;}
+#zxjs .hd_right{ margin:0; padding:3 5px;}
+#zxjs #time{ clear:right; text-align:right; font-size:12px;}
+#zxjs ul li p{ margin:3px 0;}
+#zxjs .right-li{ width:70px; word-wrap:break-word; text-align:right;margin-top:50px;}
+#zxjs ul a:visited { color:#000; text-decoration:none; } 
+
+
+/* ====================
+     成绩查询样式
+==================== */
+#cjcx .header{ background:url(../images/cjcx.jpg) 0 center no-repeat; padding-left:45px;}
+#cjcx .msg{width:96%; margin:5px auto 0 auto; text-align:right;}
+#cjcx table{ width:98%; margin:inherit; padding:5px;}
+#cjcx tr{ text-align:center;}
+#cjcx th{background:#abd78c; height:40px;}
+#cjcx a{ display:block; height:40px; line-height:40px;}
+#cjcx .tr1{height:40px; background:#f7f7f7;}
+#cjcx .tr2{ height:10px; background:#333;}
+#cjcx .trheader{ display:table-cell; vertical-align:middle; height:40px; border-left:5px solid #abd78c; padding:5px 0 5px 10px; text-align:left;}
+
+
+/* ====================
+     成绩筛选样式
+==================== */
+.sx_form{width:90%; margin:0 auto;}
+.sx_table{width:100%; border:1px solid #abd78c; margin:20px auto; text-align:center;}
+#sx tr{ font-size:18px;}
+.sx_th{ font-size:18px; font-weight:bold; line-height:40px; background:#abd78c;}
+.my_checkbox{height:36px; padding:5px 5px 5px 30px; cursor:pointer; font-size:18px; font-weight:bold; text-align:left; background:#f7f7f7 url(../images/checkbox.png) 5px 7px; background-repeat:no-repeat;}
+.checkon{background-position:5px -34px;}
+#sx #submit{margin-right:12px; width:120px;}
+#sx #reset{margin-left:12px;  width:120px; background:#dcdddd; color:#666;}
+
+/* ====================
+     请假条样式
+==================== */
+#qjt{ width:92%; margin:10px auto;}
+#qjt fieldset{ margin-top:10px; border:1px solid #abd78c; padding:10px;}
+#qjt tr{height:30px;}
+#qjt label{width:30%; float:left;}
+#qjt .kbtn{line-height:22px; height:22px; border:1px solid #CCC; padding:0 5px;}
+#qjt #date{display:none;}
+#qjt #time{ width:160px;}
+#qjt textarea{ width:100%; height:50px; padding:5px; float: left; border:1px solid #CCC; margin:5px 0;}
+#qjt .line{ height:1px; background:#abd78c;}
+#qjt #submit{ display:block; width:100%; margin:10px auto;}
+
+/* ====================
+     请假情况样式 审批情况样式
+==================== */
+#qjqk .right-li, #spqk .right-li{text-align:center;padding-top:50px;}
+
+/* ====================
+     审批样式
+==================== */
+#sp label{width:80px; background:none; cursor:default; display:inline-block; font-weight:bold;}
+#sp #stu_name{ width:55%; font:inherit;}
+#sp #bottom-li{ margin-top:20px; border-top:1px solid #999;}
+#sp ul li p{ margin:5px 0; word-wrap: break-word; overFlow:auto;}
+#sp #yj{width:100%; border:1px solid #abd78c; height:60px;}
+#sp #buttons{text-align:center;}
+#sp #submit{ width:80px; margin-top:5px;}
+#sp #submit2{ width:80px; margin-top:5px; background:#dcdddd; color:#666;}
+/* ====================
+     登录样式
+==================== */
+#login{width:80%; margin:0 auto;}
+.logo{width:100px;height:100px; background:url(../images/logo2.png) center 0 no-repeat; margin:30px auto 20px auto;}
+#login #error{ width:75%; height:22px; color:red; font-size:16px; float:right;}
+#form1{color:#fff; clear:both;}
+#form1 label{ width:25%; margin-bottom:20px; float:left; background:#27a0f3;  text-align:center;}
+#form1 .text{width: 75%; margin-bottom:20px; padding-left: 10px; border: 1px solid #D7D7D7; cursor:auto; color: #252525; background:none; text-align:left;}
+#form1 #submit{ margin-top:30px; width:100%;}
+
+/*教师工作量*/
+#jsgzl form{
+	width:98%;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+#jsgzl #weeks{
+	width:100%;
+	font-family:"黑体";
+	font-size:14px;
+	height:30px;
+	border:1px solid #abd78c;
+	border-radius:5px;
+}
+
+/*==================
+教学评价
+=================*/
+#jxpj input{display:none;}
+#jxpj label{float:left; width:80px; height:40px; line-height:40px;}
+#jxpj ul li div{ overflow:auto;}
+#jxpj .li1{ border:0;}
+#jxpj .myradio{ float:left; width:40px; height:40px; display:block; background:url(../images/icons3.png) center -32px no-repeat; cursor:pointer; text-indent:-999em;}
+#jxpj .myradio-on{ background-position:center 8px;}
+#jxpj textarea{ border:1px solid #CCC; width:100%; height:60px; padding:5px; clear:both;}
+#jxpj #submit{ display:block; width:98%; margin:20px auto;}
+
+/*==================
+教师任务
+=================*/
+#jsrw .tou{margin-top:10px;}
+#jsrw .tou{margin-top:10px;}
+#jsrw .button{ display:block; width:100%; margin-top: 5px;}
+#jsrw .radio{ display:inline-block; width:30px; cursor:pointer;}
+#jsrw textarea{width:100%; height:90px;}
+
+/*教务通知*/
+#jw #tzul{float:left; width:98%;}
+#jw .hd_left{ background:url(../images/xf.jpg) 0 center no-repeat; padding-left:50px;}
+#jw .leftli{float:left; width:70%;}
+#jw .right-li{float:right; margin-left:10px;}
+#jw .right-li img{float:right; width:60px; height:60px;}
+#jw .bt{float:left; width:100%;}
+#jw .sj{float:left;}
+#xl .hd_left{ background:url(../images/jrkb.jpg) 0 center no-repeat; padding-left:50px;}
+
+/*校历*/
+#xl .left-li{width:92%;}
+#xl .fj{padding-left:30px; color:#ffc801;font-family:"黑体"; font-size:16px;}
+#xl .zt{color:#ffc801;font-family:"黑体"; font-size:16px;}

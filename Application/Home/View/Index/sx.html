@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<title>成绩筛选</title>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <div class="container" id="sx"> 
+    <form name="form1" method="post" action="__CONTROLLER__/cjcx/wxno/{$wxno}" class="sx_form">
+      <table class="sx_table" cellspacing="10">
+      	<tr><td colspan="2" class="sx_th">学期</td></tr>
+        <tr><td><input type="checkbox" name="term[]" value="1" />
+        <span>学期一</span></td>
+        <td><input type="checkbox" name="term[]" value="2" />
+        <span>学期二</span></td></tr>
+        <tr><td><input type="checkbox" name="term[]" value="3" />
+        <span>学期三</span></td>
+        <td><input type="checkbox" name="term[]" value="4" />        
+        <span>学期四</span></td></tr>
+        <tr><td><input type="checkbox" name="term[]" value="5" />
+        <span>学期五</span></td>
+        <td><input type="checkbox" name="term[]" value="6" />
+        <span>学期六</span></td></tr>
+        <tr><td><input type="checkbox" name="term[]" value="7" />
+        <span>学期七</span></td>
+        <td><input type="checkbox" name="term[]" value="8" />
+        <span>学期八</span></td></tr>
+        <tr><td colspan="2" class="sx_th">课程类别</td></tr>
+        <tr><td ><input type="checkbox" name="c_type[]" value="专业必修" />
+        <span>专业必修</span></td>
+        <td><input type="checkbox" name="c_type[]" value="专业选修" />
+        <span>专业选修</span></td></tr>
+        <tr><td><input type="checkbox" name="c_type[]" value="公共必修" />
+        <span>公共必修</span></td>
+        <td><input type="checkbox" name="c_type[]" value="公共选修" />
+        <span>公共选修</span></td></tr>
+        <td colspan="2" class="sx_th" height="10"></td></tr>
+        <tr><td colspan="2" ><input type="submit" value="确定" class="button" id="submit"/><input type="reset" value="重置" class="button" id="reset" onClick="clean();"/></td></tr>
+      </table>
+    </form>
+  </div>
+  
+<script type="text/javascript">	
+	
+	var inputs = document.getElementsByTagName('input');
+	var myCheckboxArr = document.getElementsByTagName('span');	
+	function init(){
+		for(var i=0; i<inputs.length; i++){
+			if(inputs[i].type == 'checkbox'){
+				inputs[i].style.display='none';
+				inputs[i].checked = false;
+				inputs[i].id="checkbox"+i;
+			}
+		}
+		for(var i=0; i<myCheckboxArr.length; i++){
+			myCheckboxArr[i].id=i;
+			myCheckboxArr[i].className = "my_checkbox";
+			myCheckboxArr[i].onclick = function(){
+				check(this,this.id);				
+			}
+		}
+	}
+	function check(myCheckbox,num){
+		var checkbox = document.getElementById("checkbox"+num); 
+		if(checkbox.checked){
+			checkbox.checked = false;
+			myCheckbox.className = "my_checkbox";	
+		}else{
+			checkbox.checked = true;
+			myCheckbox.className = "my_checkbox checkon";
+		}
+	}
+	function clean(){
+		for(var i=0; i<myCheckboxArr.length; i++){
+			myCheckboxArr[i].className="my_checkbox";
+		}
+	}
+	window.onload = init;
+</script>
+</body>
+</html>

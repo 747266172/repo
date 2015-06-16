@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>考勤情况</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+<style type="text/css">
+#kqqk{ width:100%; }
+#kqqk .header{ width:92%; margin:10px auto; }
+#kqqk #bottom{ width:92%; margin:0 auto; display:none; padding:10px 20px; text-align:center;}
+#kqqk #bottom span{ margin:5px; font-size:14px; color:#333; line-height:1.5;}
+#kqqk .span{ font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="container" id="kqqk">
+	<div class="header">
+        <div class="hd_right">
+        	<a href="__CONTROLLER__/kqjl/wxno/{$wxno}">考勤记录</a>        	
+        </div>
+		<div class="hd_left font-title">考勤情况</div>
+    </div>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <div id="bottom">
+    	<span style="text-align:left; display:inline-block;">
+        <span class="span">未到：</span>
+        <span>
+        	<php>
+            	foreach($case as $k=>$v){
+                	if($v["att_state"]==null) echo $v["stu_name"]." ";
+                }
+            </php>
+        </span><br/>
+        <span class="span">迟到：</span>
+        <span>
+        	<php>
+            	foreach($case as $k=>$v){
+                	if($v["att_state"]==0 && $v["att_state"]!=null) echo $v["stu_name"]." ";
+                }
+            </php>
+        </span><br/>
+		<span class="span">请假：</span>
+        <span>
+        	<php>
+            	foreach($case as $k=>$v){
+                	if($v["att_state"]==2) echo $v["stu_name"]." ";
+                }
+            </php>
+        </span>
+        </span>
+    </div>
+</div>
+    <!-- ECharts单文件引入 -->
+    <script src="{$Think.const.JS_URL}echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '{$Think.const.JS_URL}'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+					title : {
+						text: '{$case[0].sc_name}',
+						subtext:'{$case[0].c_name}\n第{$case[0].tea_weeks}周 星期{$case[0].s_weekday} 第{$case[0].s_section}到{$case[0].s_sectionend}节',
+						x:'center',
+						y:10,
+					},
+					tooltip : {
+						trigger: 'item',
+						formatter: "{a} <br/>{b} ({d}%)"
+					},
+					legend: {
+						orient : 'horizontal',
+						x : 'center',
+						y : 'bottom',
+						data:['迟到：{$lateNum}','请假：{$leaveNum}','未到：{$absenteeismNum}','已到：{$normalNum}'],
+					},					
+					calculable : true,
+					series : [
+						{
+							name:'访问来源',
+							type:'pie',
+							radius : '55%',
+							center: ['50%', '60%'],
+							data:[
+								{ value:{$lateNum}, name:'迟到：{$lateNum}' },
+								{ value:{$leaveNum}, name:'请假：{$leaveNum}' },
+								{ value:{$absenteeismNum}, name:'未到：{$absenteeismNum}' },
+								{ value:{$normalNum}, name:'已到：{$normalNum}' }
+							]
+						}
+					]
+				};									
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+		setTimeout(function(){
+			document.getElementById('bottom').style.display='block';
+			
+		},1500);
+    </script>
+</body>

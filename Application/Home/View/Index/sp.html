@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<title>请假审批</title>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+
+</head>
+
+<body>
+  <div class="container" id="sp">
+  <div class="header">
+   	<div class="hd_left font-title">请假审批</div><a href="__CONTROLLER__/spqk/wxno/{$wxno}"><div class="hd_right">历史</div></a></div>       
+    <ul>
+    <volist name="splist" id="vo">
+        <li>
+            <form action="" method="post"> 
+			<div>
+				<input type="hidden" name="le_id" value="{$vo.le_id}"/>
+				<p class="font18"><label>姓名：</label>{$vo.usr_name}</p>
+				<p><label>请假类别：</label>{$vo.type}</p>
+				<p><label>开始时间：</label>{$vo.begintime}</p>
+				<p><label>结束时间：</label>{$vo.endtime}</p>
+				<p><label>请假时间：</label>{$vo.time}天</p>                    
+				<p><label>事由：</label>{$vo.account}</p>
+			</div>
+			<div id="bottom-li">
+				<p><label>教师意见：</label></p>
+				<p></label><textarea name="suggestion" cols="" rows="3" id="yj"></textarea></p>		   
+				<p id="buttons"><input type="submit" class="button" name="agree" id="submit" value="同意"/>
+				<input type="submit" class="button" name="agree" id="submit2" value="不同意"/></p>                    
+            </div>
+			</form>         
+        </li>
+	</volist>
+    </ul>    
+</div>
+</body>
+</html>

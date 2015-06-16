@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>今日课表</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <div class="container" id="jrkc">
+    <div class="header">    
+        <div class="hd_right">
+        	<div class="day">周{$week}</div>
+        	<div class="time"><?php echo  date('Y').'年'.date('m').'月'.date('d').'日'; ?>
+                第{$wes}周</div>        	    
+        </div>
+        <div class="hd_left font-title">今日课表</div>
+    </div>
+    <!--头文件结束-->
+    <ul>
+    <volist name='bb' id='vo'>
+      <li>
+        <div class="left-li">
+        <p class="font18"><strong>{$vo.c_name}</strong></p>
+        <p class="icon1"><php>if($role==1)echo "教师：";else echo"班级："; echo $vo["object"];</php></p>
+        <p class="icon2">教室：{$vo.cr_name}</p>
+        <p class="icon3">周数： {$vo.s_wbegin}-{$vo.s_wend}周</p>
+        </div>        
+        <div class="right-li">
+		<p id="right1">第{$vo.s_section}节</p>
+        <p id="right2">—到—</p>
+        <p id="right1">第{$vo[s_section]+$vo[s_sectioncount]-1}节</p>
+        </div>
+      </li>
+      </volist>
+    </ul>   
+    <a href="__CONTROLLER__/qzkb/wxno/{$wxno}"><div class="button" id="button">全周课表</div></a>
+  </div>
+</body>
+</html>

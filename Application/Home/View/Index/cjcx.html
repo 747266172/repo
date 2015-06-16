@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<title>成绩查询</title>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+
+</head>
+
+<body>
+  <div class="container" id="cjcx">
+   	<div class="header font-title">成绩查询</div>
+    <p class="msg">你目前已获得<span class="font20">{$sumCredit}</span>个学分</p>
+    <table cellpadding="0" cellspacing="0">
+      <tr><th width="18%"><a href="__CONTROLLER__/sx/wxno/{$wxno}"><img src="{$Think.const.IMG_URL}/sx.png">筛选</a></th>
+      <th width="30%">&nbsp;课程名称</th>
+      <th width="11%" >成绩</th>
+      <th width="11%">学分</th>
+      <th width="20%">课程类别</th>
+	  <th>学期</th></tr>
+      <tr class="tr2" />
+      <volist name='zxk' id='vo'>
+      <tr class="tr1"><td colspan="2" style="padding:0;"><div  class="trheader">{$vo.per_name}</div></td><td>{$vo.per_score}</td><td>2</td><td>{$vo.c_type}</td><td>{$vo.term}</td></tr>
+      <tr class="tr2" />
+      </volist>
+    </table>
+  </div>
+</body>
+</html>

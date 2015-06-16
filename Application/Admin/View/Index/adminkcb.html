@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze UI Admin form Examples</title>
+  <meta name="description" content="这是一个form页面">
+  <meta name="keywords" content="form">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="{$think.const.ADMIN_IMG_URL}favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="{$think.const.ADMIN_IMG_URL}app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="{$Think.const.ADMIN_CSS_URL}amazeui.min.css"/>
+  <link rel="stylesheet" href="{$Think.const.ADMIN_CSS_URL}admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+ <small>后台管理</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+   
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+    
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="adminindex.html"><span class="am-icon-home"></span> 首页</a></li>
+        <li class="admin-parent">
+         <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 信息查询 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+            <li><a href="adminuser.html" class="am-cf"><span class="am-icon-check"></span> 学生信息<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a href="adminls.html"><span class="am-icon-puzzle-piece"></span> 老师信息</a></li>
+            <li><a href="admincj.html"><span class="am-icon-th"></span> 成绩信息</a></li>
+            <li><a href="adminbj.html"><span class="am-icon-th"></span> 班级信息</a></li>
+            <li><a href="adminkc.html"><span class="am-icon-th"></span> 课程信息</a></li>
+            <li><a href="adminjs.html"><span class="am-icon-calendar"></span> 教室信息</a></li>
+            <li><a href="adminzy.html"><span class="am-icon-bug"></span> 专业信息</a></li>
+          </ul>
+        </li>
+        <li><a href="admintz.html"><span class="am-icon-table"></span>教务通知</a></li>
+        <li><a href="adminkcb.html"><span class="am-icon-pencil-square-o"></span> 课程表</a></li>
+        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+       
+      </div>
+
+     
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+<!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">课程表</strong> / <small>Course table</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12 am-u-md-6">
+        <div class="am-btn-toolbar">
+          <div class="am-btn-group am-btn-group-xs">
+           <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+          </div>
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-form-group">
+          <select data-am-selected="{btnSize: 'sm'}">
+            <option value="option1">所有类别</option>
+            <option value="option2">IT业界</option>
+            <option value="option3">数码产品</option>
+            <option value="option3">笔记本电脑</option>
+            <option value="option3">平板电脑</option>
+            <option value="option3">只能手机</option>
+            <option value="option3">超极本</option>
+          </select>
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-input-group am-input-group-sm">
+          <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">搜索</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <form class="am-form">
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+              <th class="table-title">授课教师</th>
+                <th class="table-title">上课班级</th><th class="table-type">教室</th><th class="table-type">课程名称</th><!--<th class="table-type">星期(1为周一，7为周日)</th><th class="table-type">上课长度</th><th class="table-type">起始周</th><th class="table-type">结束周</th>--><th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody> 
+         <volist name="kcbxx" id="rows">
+            <tr>
+              <foreach name="rows" item="vo" key="k" >
+                <td name="{$k}">{$vo}</td>
+              </foreach>              
+              <td>
+                <div class='am-btn-toolbar'>
+                  <div class='am-btn-group am-btn-group-xs'>
+                    <button class='am-btn am-btn-default am-btn-xs am-text-secondary' style="padding:0; width:62px; height:31px;"><a style="display:block; height:100%; line-height:30px;" href="__CONTROLLER__/kcbedit"><span class="am-icon-pencil-square-o"></span>编辑</a></button>
+                    <button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' style="padding:0; width:62px; height:31px;"><a style="display:block; height:100%; line-height:30px;" href="__CONTROLLER__/kcbadd"><span class='am-icon-copy'></span> 添加</a></button>
+                    <button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' ><span class='am-icon-trash-o'></span> 删除</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </volist>
+          </tbody>
+        </table>
+   
+          <hr />
+          <p>注：.....</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+<!-- content end -->
+
+</div>
+
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{$Think.const.ADMIN_JS_URL}jquery.min.js"></script>
+<script src="{$Think.const.ADMIN_JS_URL}amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="{$Think.const.ADMIN_JS_URL}app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>教学评价</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+<script type="text/javascript" src="{$Think.const.JS_URL}/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	var myRadioNameArr=['jxmb','jxnr','jxff','jxsz','kczd'];
+	var form=$("form");
+	for(var a=0; a<form.length;a++){
+		form[a].id="jxpjform"+a;
+		for(var i=0; i<5; i++){
+			var myRadio = $('#jxpjform'+a+' input:button[name='+myRadioNameArr[i]+']');
+			for(var j=0; j<myRadio.length; j++){
+				myRadio[j].value=j+1;
+				myRadio[j].onclick=function(){
+					var myRadio = $('#'+this.form.id+' input:button[name='+this.name+']');
+					var radio = $('#'+this.form.id+' input:radio[name='+this.name+']');
+					radio[this.value-1].checked=true;
+					for(var i=0; i<myRadio.length; i++){
+						if(i<this.value){
+							myRadio[i].className = 'myradio myradio-on';						
+						}else{
+							myRadio[i].className = 'myradio';	
+						}
+					}
+				};
+			}
+		}
+	}
+});
+
+</script>
+</head>
+
+<body>
+  <div class="container" id="jxpj">
+   	<div class="header font-title">教学评价</div>   
+    <ul>
+	<volist name="jxpj" id="vo">		
+		<form action="__SELF__" method="post">
+		<li>
+			<input type="hidden" name="eva_id" value="{$vo.eva_id}"/>
+          <div class="font18">{$vo.c_name}</div>
+		  <div class="icon1">授课教师：{$vo.usr_name}</div>
+		  <div class="icon1">授课地点：{$vo.cr_name}</div>
+		  <div class="icon1">授课时间：第{$vo["tea_weeks"]}周 星期{$vo.s_weekday} 第{$vo["s_section"]}至{$vo["s_section"]+$vo["s_sectioncount"]-1}节</div>
+		</li>
+		<li class="li1">      
+      	<div class="font-weight">
+        	<label>教学目标:</label>
+            <input type="radio" name="jxmb" value="1"/>
+            <input type="button" name="jxmb" class="myradio myradio-on"/>
+            <input type="radio" name="jxmb" value="2"/>
+            <input type="button" name="jxmb" class="myradio myradio-on"/>  
+            <input type="radio" name="jxmb" value="3" checked/>  
+            <input type="button" name="jxmb" class="myradio myradio-on"/>
+            <input type="radio" name="jxmb" value="4"/>  
+            <input type="button" name="jxmb" class="myradio"/>
+            <input type="radio" name="jxmb" value="5"/>          
+            <input type="button" name="jxmb" class="myradio"/>
+        </div>
+        <div class="font-weight">
+        	<label>教学内容:</label>
+            <input type="radio" name="jxnr" value="1"/>
+            <input type="button" name="jxnr" class="myradio myradio-on"/>
+            <input type="radio" name="jxnr" value="2"/>  
+            <input type="button" name="jxnr" class="myradio myradio-on"/>
+            <input type="radio" name="jxnr" value="3" checked/>  
+            <input type="button" name="jxnr" class="myradio myradio-on"/>
+            <input type="radio" name="jxnr" value="4"/>  
+            <input type="button" name="jxnr" class="myradio"/>
+            <input type="radio" name="jxnr" value="5"/>          
+            <input type="button" name="jxnr" class="myradio"/>
+        </div>
+        <div class="font-weight">
+        	<label>教学方法:</label>
+            <input type="radio" name="jxff" value="1"/>
+            <input type="button" name="jxff" class="myradio myradio-on"/>
+            <input type="radio" name="jxff" value="2"/>  
+            <input type="button" name="jxff" class="myradio myradio-on"/>
+            <input type="radio" name="jxff" value="3" checked/>  
+            <input type="button" name="jxff" class="myradio myradio-on"/>
+            <input type="radio" name="jxff" value="4"/>  
+            <input type="button" name="jxff" class="myradio"/>
+            <input type="radio" name="jxff" value="5"/>          
+            <input type="button" name="jxff" class="myradio"/>
+        </div>
+        <div class="font-weight">
+        	<label>教学素质:</label>
+            <input type="radio" name="jxsz" value="1"/>
+            <input type="button" name="jxsz" class="myradio myradio-on"/>
+            <input type="radio" name="jxsz" value="2"/>  
+            <input type="button" name="jxsz" class="myradio myradio-on"/>
+            <input type="radio" name="jxsz" value="3" checked/>  
+            <input type="button" name="jxsz" class="myradio myradio-on"/>
+            <input type="radio" name="jxsz" value="4"/>  
+            <input type="button" name="jxsz" class="myradio"/>
+            <input type="radio" name="jxsz" value="5"/>          
+            <input type="button" name="jxsz" class="myradio"/>
+        </div>
+        <div class="font-weight">
+        	<label>课程指导:</label>
+            <input type="radio" name="kczd" value="1"/>
+            <input type="button" name="kczd" class="myradio myradio-on"/>
+            <input type="radio" name="kczd" value="2"/>  
+            <input type="button" name="kczd" class="myradio myradio-on"/>
+            <input type="radio" name="kczd" value="3" checked/>  
+            <input type="button" name="kczd" class="myradio myradio-on"/>
+            <input type="radio" name="kczd" value="4"/>  
+            <input type="button" name="kczd" class="myradio"/>
+            <input type="radio" name="kczd" value="5"/>          
+            <input type="button" name="kczd" class="myradio"/>
+        </div> 
+         <div class="font-weight">
+             <label style="height:auto; line-height:20px;">其它评价：</label>
+             <textarea name="order"></textarea>
+        </div>
+		<input type="submit" value="提交" class="button" id="submit"/>
+      </li>	 
+	</form>
+	</volist>
+    </ul>   
+  </div>
+</body>
+</html>

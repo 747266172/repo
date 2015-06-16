@@ -1,0 +1,72 @@
+[ 2015-06-16T13:00:22+08:00 ] 127.0.0.1 /index.php/home/index/ktkq?wxno=yyc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000680s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001172s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.2588s ]
+SQL: SELECT * FROM `users` WHERE ( wxno='yyc' and wxno!='' )  [ RunTime:0.0700s ]
+SQL: SHOW COLUMNS FROM `student` [ RunTime:0.0283s ]
+SQL: SELECT * FROM `student` WHERE ( usr_id='1' )  [ RunTime:0.1063s ]
+SQL: SHOW COLUMNS FROM `xl` [ RunTime:0.0064s ]
+SQL: SELECT * FROM `xl` WHERE ( x_start <= '2015-06-16 13:00:21' and x_end >= '2015-06-16 13:00:21' )  [ RunTime:0.0575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001314s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001424s ]
+
+[ 2015-06-16T15:57:05+08:00 ] 127.0.0.1 /index.php/Home/Index/ktkq
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000738s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.020200s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020342s ]
+NOTIC: [8] Undefined index: wxno D:\web\think\jwwxpt\Application\Home\Controller\IndexController.class.php 第 477 行.
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0462s ]
+SQL: SELECT * FROM `users` WHERE ( wxno='' and wxno!='' )  [ RunTime:0.0324s ]
+
+[ 2015-06-16T15:57:05+08:00 ] 127.0.0.1 /index.php/Home/Index/login/wxno.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000805s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000939s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0073s ]
+NOTIC: [8] Undefined index: wxno D:\web\think\jwwxpt\Application\Home\Controller\IndexController.class.php 第 202 行.
+SQL: SELECT * FROM `users` WHERE ( wxno='' and wxno != '' and wxno is not null ) LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: wxno D:\web\think\jwwxpt\Application\Home\Controller\IndexController.class.php 第 232 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+NOTIC: [8] Undefined variable: error D:\web\think\jwwxpt\Application\Runtime\Cache\Home\ccea6a400660ce54d68cab67b9f68781.php 第 13 行.
+NOTIC: [8] Undefined variable: users D:\web\think\jwwxpt\Application\Runtime\Cache\Home\ccea6a400660ce54d68cab67b9f68781.php 第 17 行.
+NOTIC: [8] Undefined variable: users D:\web\think\jwwxpt\Application\Runtime\Cache\Home\ccea6a400660ce54d68cab67b9f68781.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.102341s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.102442s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.014000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014104s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.010914s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011021s ]
+
+[ 2015-06-16T15:57:27+08:00 ] 127.0.0.1 /index.php/home/index/ktkq?wxno=yyc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000867s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `users` WHERE ( wxno='yyc' and wxno!='' )  [ RunTime:0.0439s ]
+SQL: SHOW COLUMNS FROM `student` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `student` WHERE ( usr_id='1' )  [ RunTime:0.0301s ]
+SQL: SHOW COLUMNS FROM `xl` [ RunTime:0.0073s ]
+SQL: SELECT * FROM `xl` WHERE ( x_start <= '2015-06-16 15:57:27' and x_end >= '2015-06-16 15:57:27' )  [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001103s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001227s ]
+

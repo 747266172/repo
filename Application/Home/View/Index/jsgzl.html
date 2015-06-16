@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>教学统计</title>
+<meta name='viewport' content='width=device-width  initial-scale=1 maximum-scale=1 user-scalable=no '>
+<link href="{$Think.const.CSS_URL}layout.css" rel="stylesheet" type="text/css"></link>
+<script type="text/javascript">
+function mySubmit(){
+	document.getElementById("form1").submit();
+}
+window.onload=function(){
+	document.getElementById("weeks").value = {$weeks};
+}
+</script>
+</head>
+
+<body>
+  <div class="container" id="jsgzl">
+    <div class="header">
+    	<div class="hd_right">您已经完成<span class="font20">{$count}</span>课时</div>
+      <div class="hd_left font-title">教学统计</div>
+    </div>
+    <!--头文件结束-->
+    <form action="__SELF__" method="post" id="form1">
+    <select onchange="document.getElementById('form1').submit()" name="weeks" id="weeks">
+    	<option value="1 AND 20" >全部</option>
+    	<option value="1 AND 4" >第1至第4周</option>
+        <option value="5 AND 8" >第5至第8周</option>
+        <option value="9 AND 12" >第9至第12周</option>
+        <option value="13 AND 16" >第13至第16周</option>
+        <option value="17 AND 20" >第17至第20周</option>
+    </select>
+    </form>
+    <ul>
+    <volist name="workload" id="vo">
+      <li>
+        <div>
+            <p class="icon1 font18">教学任务：{$vo.c_name}</p>
+            <p class="icon1">班级：{$vo.sc_name}</p>
+            <p class="icon1">课时：{$vo.sum}</p>
+        </div>
+       </li>              
+     </volist>
+    </ul>
+  </div>
+</body>
+</html>
